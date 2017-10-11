@@ -1,4 +1,4 @@
-# Code for reading the UniProt database .tsv (Look at uniprot-homo+sapiens.tab) and inputting isoforms and their names
+# Code for reading the UniProt database .tsv (Look at uniprot-test.tab [Downloaded for all the Homo Sapiens Proteins]) and inputting isoforms and their names
 import csv
 from bs4 import BeautifulSoup
 import requests
