@@ -1,3 +1,6 @@
+# For the SEA Algorithm, we do not consider certain sources (so data with source IDs 7 & 15 are removed)
+# Since 'Autocuration' results sometimes are inaccurate, those are removed as well from the file processed from the chembl23 db mysql file
+
 EXCLUDE_SOURCES = ['7', '15']
 WEAK_CURATION = ['Autocuration']
 
@@ -7,6 +10,8 @@ def commacatenate(param1, param2):
 
 z = open('assays-outfile6.tsv', 'r')
 o = open('assays-mod6-actual.tsv', 'w+')
+
+# Code to get rid of these datapoints and print them out to a new file
 
 for line in z.readlines():
     cols = line.split('\t')
