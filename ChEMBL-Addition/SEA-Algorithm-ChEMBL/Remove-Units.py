@@ -1,3 +1,6 @@
+# SEA can only process certain types of Units
+# Created a dictionary with those Units (below)
+
 UNITS2NM = {'M': 1e9, 'mM': 1e6, 'uM': 1e3, 'nM':1, 'pM':1e-3, 'fM':1e-6, 'fmol/ml':1e-3, 'pmol/ml':1, 'nmol/ml': 1e3, 'umol/ml':1e9, 'mmol/ml':1e12, 'M-1':1e-9, 'NULL':1}
 
 def commacatenate(param1, param2):
@@ -5,6 +8,9 @@ def commacatenate(param1, param2):
 
 i = open('assays-mod7.csv', 'r')
 o = open('assays-mod9.csv', 'w+')
+
+# Code for only including new units in the new csv file
+# Also processes the units based on their conversion factors
 
 for line in i.readlines():
     cols = line.split(',')
