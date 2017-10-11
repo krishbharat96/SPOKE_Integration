@@ -19,7 +19,7 @@ def sourcatenate(protein, count, fasource): # Concatenation for the FASTA source
 z = open('uniprot-homo+sap6.tab', 'r')
 
 # Open the Graph Driver Session
-driver = GraphDatabase.driver("bolt://msgap1.ucsf.edu/:7687", auth=basic_auth("kbharat96", "tejas321"))
+driver = GraphDatabase.driver("bolt://neo4j-server/:7687", auth=basic_auth("username", "password"))
 session = driver.session()
 
 for line in z.readlines():
