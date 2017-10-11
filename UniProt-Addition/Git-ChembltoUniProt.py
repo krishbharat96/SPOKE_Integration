@@ -29,7 +29,7 @@ with open('targets.txt') as f:
             page = requests.get('https://www.ebi.ac.uk/chembl/target/inspect/' + line[5]).text
             soup = BeautifulSoup(page, "lxml")
             table = soup.find('table')
-            UniProt = re.compile('canSAR')
+            UniProt = re.compile('UniProt')
             for row in table.find_all("a"):
                 if (q == "F"):
                     UniChem = commacatenate(line[5], row.text)
