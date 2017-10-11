@@ -1,5 +1,5 @@
 # The ChEMBL database is massive (> 1.7 million compounds). For efficiency sake, I split the file into 10 other files using a regular split -l command [This entire sequence can definitely be automated using a bash-script]
-# Refer to Sample-ChEMBL-Comps.csv for the file used to add the compounds to SPOKE
+# Refer to Sample-ChEMBL-Compounds.tsv for the file used to add the compounds to SPOKE
 # Import the relevant packages
 import csv
 from neo4j.v1 import GraphDatabase, basic_auth # Neo4j-driver to interface python with the Neo4J MSGAP server
