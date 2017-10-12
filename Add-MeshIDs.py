@@ -1,10 +1,11 @@
+# Code to add MESHIDs to Neo4j from MESHID csv file
 from neo4j.v1 import GraphDatabase, basic_auth
 import csv
 
 driver = GraphDatabase.driver("bolt://neo4j-server:7687", auth=basic_auth("Username", "Password"))
 session = driver.session()
 
-def add_string(parameter1, parameter2):
+def add_string(parameter1, parameter2): # Concatenated Cypher query
     return "MATCH (n:Disease {identifier: '" + parameter1 +  "'})" + " SET n.mesh_id='" + parameter2 + "'" + " RETURN n.name"
 
 with open('Diseases_MESH.csv') as f:
