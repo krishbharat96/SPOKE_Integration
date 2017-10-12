@@ -1,3 +1,4 @@
+# Code for inserting Standardized SMILES identifiers into SPOKE
 from neo4j.v1 import GraphDatabase, basic_auth
 
 def concatenate(chemblid, stdsmiles):
