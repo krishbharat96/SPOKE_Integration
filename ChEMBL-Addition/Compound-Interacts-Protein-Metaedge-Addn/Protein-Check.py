@@ -1,3 +1,4 @@
+# Making sure that all the ChEMBL IDs added from UniProt into SPOKE exist so that the Compound-Interacts-Protein edges can be easily added
 from neo4j.v1 import GraphDatabase, basic_auth
 
 def concatenate(pchembl):
@@ -6,7 +7,7 @@ def concatenate(pchembl):
 f = open('tars-org-prot.tsv', 'r')
 e = open('tars-notfound.txt', 'w+')
 
-driver = GraphDatabase.driver("bolt://msgap1.ucsf.edu/:7687", auth=basic_auth("kbharat96", "tejas320"))
+driver = GraphDatabase.driver("bolt://neo4j-server/:7687", auth=basic_auth("Username", "Password"))
 session = driver.session()
 
 for line in f.readlines():
