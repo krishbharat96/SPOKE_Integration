@@ -1,3 +1,4 @@
+# Consists of Disease Name, DOID, and MESHID (Self-generated using the Ontobee Website)
 Disease Name,DOID,MeSHID,Source,
 Bile Duct Cancer,DOID:4606,D001650,http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_4606,
 Crohn's Disease,DOID:8778,D003424,http://www.ontobee.org/ontology/DOID?iri=http://purl.obolibrary.org/obo/DOID_8778,
