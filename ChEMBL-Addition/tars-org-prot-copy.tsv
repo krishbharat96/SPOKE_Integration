@@ -1,3 +1,4 @@
+Record No.  Cmpd-Molregno  Description  Target-Molregno Action_type Target-Molregno Target-Mol_type Target-Description  Organism  Target-ChEMBLID Cmpd-Molregno Cmpd-ChEMBLID
 1343810	1124	Carbonic anhydrase VII inhibitor	11060	INHIBITOR	11060	SINGLE PROTEIN	Carbonic anhydrase VII	Homo sapiens	CHEMBL2326	1124	CHEMBL19
 1344053	675068	Carbonic anhydrase I inhibitor	10193	INHIBITOR	10193	SINGLE PROTEIN	Carbonic anhydrase I	Homo sapiens	CHEMBL261	675068	CHEMBL1201117
 1344649	674765	Carbonic anhydrase I inhibitor	10193	INHIBITOR	10193	SINGLE PROTEIN	Carbonic anhydrase I	Homo sapiens	CHEMBL261	674765	CHEMBL1200814
