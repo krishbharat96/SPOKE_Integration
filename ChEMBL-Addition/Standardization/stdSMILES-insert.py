@@ -7,7 +7,7 @@ def concatenate(chemblid, stdsmiles):
 driver = GraphDatabase.driver("bolt:neo4j-server:7687", auth=basic_auth("Username", "Password"))
 session = driver.session()
 
-file = open('stdsmiles-atkins-all.csv', 'r') # Sample file can be found within this folder: std-sample.csv
+file = open('stdsmiles-atkins-all.csv', 'r') # Sample file can be found within this folder: stdsmiles-sample.csv
 
 for line in file:
     if line:
