@@ -1,3 +1,6 @@
+# This code should work with any SQL DB on a mysql server
+# The code parses all the tables and automatically creates .tsv files containing each table's headers at the top
+# This is being done as part of the Information Commons Project at UCSF to take resources from many scientific resources and pool them together for UCSF researchers' usage
 import mysql.connector
 
 cnx = mysql.connector.connect(user='root', password='')
@@ -14,7 +17,7 @@ def elim_param(param1):
     act_tbl5 = act_tbl4.replace("',", "")
     return act_tbl5.strip()
 
-cursor.execute('USE chembl23;')
+cursor.execute('USE chembl23;') # Select DB Name - can edit DB
 cursor.execute('SHOW TABLES;')
 
 tables_arr = []
@@ -40,8 +43,8 @@ for tabl in tables_arr:
             tmp2 = basicatenate(s2, c_act)
             s2 = tmp2
 
-    cursor.execute("select " + s2 + " UNION ALL select " + s + " from " + tabl + " INTO OUTFILE '/Users/kbharat/Documents/ChEMBL-Commons/" + tabl + ".tsv';")
-    print "select " + s2 + " UNION ALL select " + s + " from " + tabl + " INTO OUTFILE '/Users/Documents/ChEMBL-Commons/" + tabl + ".tsv';"
+    cursor.execute("select " + s2 + " UNION ALL select " + s + " from " + tabl + " INTO OUTFILE '/Users/" + tabl + ".tsv';")
+    print "select " + s2 + " UNION ALL select " + s + " from " + tabl + " INTO OUTFILE '/Users/" + tabl + ".tsv';"
         
 cnx.close()
     
