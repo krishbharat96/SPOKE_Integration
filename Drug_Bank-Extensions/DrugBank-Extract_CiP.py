@@ -1,3 +1,5 @@
+# Script for extracting information directly from DrugBank in order to add more Compounds-:INTERACTS_WITH-Protein Edges
+
 import requests
 from bs4 import BeautifulSoup
 
