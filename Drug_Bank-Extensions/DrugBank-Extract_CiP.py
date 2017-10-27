@@ -27,8 +27,7 @@ for line in file:
                    dpharm_act = c[3].text
                    dact = c[4].text
                    print cols[0], 'target', dbid, dname, dgroup, dpharm_act, dact
-                   op_file.write(str(cols[0]).strip() + ',target,' + str(dbid) + ',' + str(dname) + ',' + str(dgroup) + ',' + str(dpharm_act) + ',' + str(dact))
-                   print str(cols[0]).strip() + ',target,' + str(dbid) + ',' + str(dname) + ',' + str(dgroup) + ',' + str(dpharm_act) + ',' + str(dact)
+                   op_file.write(str(cols[0]).strip() + ',target,' + dbid.encode('utf-8') + ',' + dname.encode('utf-8') + ',' + dgroup.encode('utf-8') + ',' + dpharm_act.encode('utf-8') + ',' + dact.encode('utf-8'))
                    op_file.write('\n')
 
                    
