@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup
 ## UniProt File Schema:
 ## ID,Name,Gene Name,GenBank Protein ID,GenBank Gene ID,UniProt ID,Uniprot Title,PDB ID,GeneCard ID,GenAtlas ID,HGNC ID,Species,Drug IDs
 
-file = open('all-protein-targets-copy.csv', 'r') # Downloaded from DrugBank Website
-op_file = open('prot-cmpd-output-full-trial.csv', 'w+')
+file = open('all-protein-targets.csv', 'r') # Downloaded from DrugBank Website
+op_file = open('prot-cmpd-output.csv', 'w+')
 op_file.write('ProteinID|ProteinType|DrugBankID|DrugName|DrugGroup|Pharm_Action|Drug_Actions')
 op_file.write('\n')
 
