@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 
 o = open('write-db-prot.csv', 'w+') # Output filename
 
-xml_file = open('full_database.xml', 'r')
+xml_file = open('full_database.xml', 'r') #INSERT filename or path here
 tree = ET.parse(xml_file)
 root = tree.getroot()
 
