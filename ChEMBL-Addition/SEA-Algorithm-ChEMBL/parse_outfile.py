@@ -1,10 +1,12 @@
 import math
 from decimal import Decimal as D
 
-EXCLUDE_SOURCES = ['7', '15']
-WEAK_CURATION = ['Autocuration']
-UNITS2NM = {'M': 1e9, 'mM': 1e6, 'uM': 1e3, 'nM':1, 'pM':1e-3, 'fM':1e-6, 'fmol/ml':1e-3, 'pmol/ml':1, 'nmol/ml': 1e3, 'umol/ml':1e9, 'mmol/ml':1e12, 'M-1':1e-9, 'NULL':1}
-WEAK_CONFIDENCE = ['0', '1', '2', '3', '4', '6', '8']
+# Overall/Combined script for extracting the assay data from ChEMBL for the purposes of the SEA algorithm
+
+EXCLUDE_SOURCES = ['7', '15'] # Source IDs within ChEMBL to exclude
+WEAK_CURATION = ['Autocuration'] # Exclude Autocurated assays
+UNITS2NM = {'M': 1e9, 'mM': 1e6, 'uM': 1e3, 'nM':1, 'pM':1e-3, 'fM':1e-6, 'fmol/ml':1e-3, 'pmol/ml':1, 'nmol/ml': 1e3, 'umol/ml':1e9, 'mmol/ml':1e12, 'M-1':1e-9, 'NULL':1} # Only contains acceptable units for the purposes of SEA
+WEAK_CONFIDENCE = ['0', '1', '2', '3', '4', '6', '8'] # Exclude certain confidence scores. 0-3 are poor confidences; 4, 6, and 8 have to do with Homologous Proteins and should be excluded
 
 Func_types = ["AC50", "GI50", "LD50", "ED50", "ID50", "pD'2", "pD2", "pA2", "Log AC50", "Log GI50", "Log LD50", "-Log AC50", "-Log GI50", "-Log LD50"]
 Func_data = ["identity", "identity", "identity", "identity", "identity", "minus_log", "minus_log", "minus_log", "plus_log", "plus_log", "plus_log", "minus_log", "minus_log", "minus_log"]
@@ -16,7 +18,7 @@ STD_TYPES = {'Ki':'identity', 'Kd':'identity', 'IC50':'identity', 'pKi':'minus_l
 COMBINED_TYPE = {}
 COMBINED_TYPE.update(FUNCTIONAL_TYPES_ACT)
 COMBINED_TYPE.update(STD_TYPES)
-COMBINED_TYPE.update(BOUNDING_TYPES)
+COMBINED_TYPE.update(BOUNDING_TYPES) # Contains the results of the various acceptable types of assays for SEA. The functions corresponding to the way they are processed are listed below (ie minus_log, plus_log, and identity)
 
 def minus_log(x):
     return 10**(9-x)
