@@ -1,3 +1,4 @@
+# Adding Compound-Protein relationships pulled out of DrugBank to SPOKE
 import requests
 from bs4 import BeautifulSoup
 from neo4j.v1 import GraphDatabase, basic_auth
@@ -29,10 +30,13 @@ full_arr = []
 
 for lin1 in record_cip:
     ln = lin1["cmpd"] + "-" + lin1["prot"]
-    #ln_chem = lin1["chembl"] + "-" + lin1["prot"]
     full_arr.append(ln)
     print ln
 print full_arr
+
+# Divide up into 2 categories: relationships that already exist within SPOKE that have DB classifiers for compounds or relationships that have ChEMBL classifiers for Compounds
+# In case a relationship already exists (from ChEMBL) do not add a rel from DrugBank to SPOKE
+# In case a protein/compound id does not exist within SPOKE (but is still found in the file), do not add that particular relationship. Chances are some of these compound-protein relationships are not for humans (ie the Protein is not a Homo sapiens protein)
 
 e = open('error_act.csv', 'w+')
 for line in file.readlines():
@@ -40,7 +44,7 @@ for line in file.readlines():
     if line:
         if cols[0].strip() in db_exists:
             lnog = cols[0].strip() + "-" + cols[1].strip()
-            if lnog in full_arr:
+            if lnog in full_arr: 
                 print "Present:DrugBank " + lnog
             else:
                 full_arr.append(lnog)
@@ -70,58 +74,3 @@ for line in file.readlines():
                 e.write("\n")
                     
 session.close()
-            
-             
-    
-                    
-
-##e = open("error_2.csv", "w+")
-##count_nog = 0
-##count = 0
-##for line in file.readlines():
-##    cols = line.split('|')
-##    if line:
-##        if cols[0].strip() in db_exists:
-##            lnog = cols[0].strip() + "-" + cols[1].strip()
-##            if lnog in full_arr:
-##                count_nog = count_nog + 1
-##            if lnog not in full_arr:
-##                full_arr.append(lnog)
-##                if (cols[4].strip() == ""):
-##                    up = "UNKNOWN"
-##                else:
-##                    up = str(cols[4].upper())
-##                cmd = cat(cols[1].strip(), cols[0].strip(), up.strip())
-##                count = count + 1
-##                session.run(cmd)
-##                print cmd
-##
-##        if cols[0].strip() not in db_exists and not (cols[5].strip() == ""):
-##            lnog_chem = cols[0].strip() + "-" + cols[5].strip()
-##            if lnog_chem in full_arr:
-##                count_nog = count_nog + 1
-##                
-##            if lnog_chem not in full_arr:
-##                full_arr.append(lnog_chem)
-##                if (cols[4].strip() == ""):
-##                    up = "UNKNOWN"
-##                else:
-##                    up = str(cols[4].upper())
-##                cmd = cat(cols[1].strip(), cols[5].strip(), up.strip())
-##                count = count + 1
-##                session.run(cmd)
-##                print cmd
-##
-##        if cols[0].strip() not in db_exists and (cols[5].strip() == ""):
-##            e.write(line.strip())
-##            e.write("\n")
-##
-##session.close()
-##print count
-##print count_nog
-
-
-                   
-               
-               
-        
