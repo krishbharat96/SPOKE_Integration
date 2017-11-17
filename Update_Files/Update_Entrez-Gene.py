@@ -107,13 +107,10 @@ for it, rw in select_df.iterrows():
             update = update + 1
             print update_gene_neo4j(str(rw["GeneID"]), str(rw["Symbol"]), str(rw["description"]), str(rw["chromosome"]))
             session.run(update_gene_neo4j(str(rw["GeneID"]), str(rw["Symbol"]), str(rw["description"]), str(rw["chromosome"]))).consume()
-            
                                                                                                     
-
 print "Number_New_Added : " + str(new_add)
 print "Number of Vestiges : " + str(vestige)
 print "Number Updates : " + str(update)                                     
-#print gene_df.head()
 
 session.close()
 
