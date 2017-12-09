@@ -8,23 +8,6 @@ import csv
 import re
 import time
 
-def does_isokey_exist(arr):
-    su = "false"
-    for item in arr:
-        if "isoform" in item:
-            su = "true"
-    if (su == "false"):
-        return False
-    else:
-        return True
-
-def extract_iso(arr):
-    result = []
-    for item in arr:
-        if "isoform" in item:
-            result.append(item)
-    return result
-
 def process_iso(iso_string):
     split = iso_string.split(";")
     iso_name = []
